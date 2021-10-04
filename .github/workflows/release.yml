@@ -1,0 +1,25 @@
+name: Release Bot
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build-ea:
+    if: "github.event.release.prerelease"
+    runs-on: ubuntu-latest
+    environment: 'prod'
+    steps:
+
+      - name: Hello
+        run: echo "EA: Hello World"
+
+  build-prod:
+    if: "!github.event.release.prerelease"
+    runs-on: ubuntu-latest
+    environment: 'prod'
+    steps:
+
+      - name: Hello
+        run: echo "Prod: Hello World"
