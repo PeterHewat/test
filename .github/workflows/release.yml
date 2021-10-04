@@ -9,12 +9,13 @@ jobs:
   build-ea:
     if: "github.event.release.prerelease"
     runs-on: ubuntu-latest
-    environment: 'prod'
+    environment: 'ea'
     steps:
 
       - name: Hello
         run: |
-          echo "EA: Hello World"
+          echo "EA_SECRET: ${{ secrets.EA_SECRET }}"
+          echo "PROD_SECRET: ${{ secrets.PROD_SECRET }}"
 
   build-prod:
     if: "!github.event.release.prerelease"
@@ -24,4 +25,5 @@ jobs:
 
       - name: Hello
         run: |
-          echo "Prod: Hello World"
+          echo "EA_SECRET: ${{ secrets.EA_SECRET }}"
+          echo "PROD_SECRET: ${{ secrets.PROD_SECRET }}"
