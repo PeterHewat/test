@@ -13,7 +13,8 @@ jobs:
     steps:
 
       - name: Hello
-        run: echo "EA: Hello World"
+        run: |
+          echo "EA: Hello World"
 
   build-prod:
     if: "!github.event.release.prerelease"
@@ -22,4 +23,5 @@ jobs:
     steps:
 
       - name: Hello
-        run: echo "Prod: Hello World"
+        run: |
+          echo "Prod: Hello World"
